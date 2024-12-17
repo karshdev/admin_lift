@@ -21,7 +21,7 @@ const QuestionsManagement = () => {
   // Fetch questions from API
   useEffect(() => {
     const fetchQuestions = async () => {
-      const res = await fetch("http://localhost:5000/api/questions");
+      const res = await fetch("https://backend-lift.onrender.com/api/questions");
       const data = await res.json(); 
       setQuestions(data);
     };
@@ -35,7 +35,7 @@ const QuestionsManagement = () => {
       return;
     }
 
-    const res = await fetch("http://localhost:5000/api/questions", {
+    const res = await fetch("https://backend-lift.onrender.com/api/questions", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(newQuestion),
@@ -56,7 +56,7 @@ const QuestionsManagement = () => {
 
   // Update question
   const handleUpdateQuestion = async () => {
-    const res = await fetch(`http://localhost:5000/api/questions/${editQuestion._id}`, {
+    const res = await fetch(`https://backend-lift.onrender.com/api/questions/${editQuestion._id}`, {
       method: "PUT",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify(editQuestion),

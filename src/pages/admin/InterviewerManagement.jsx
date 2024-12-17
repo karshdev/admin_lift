@@ -17,7 +17,7 @@ const InterviewerManagement = () => {
 
   const fetchCategories = async () => {
     try {
-      const res = await axios.get("http://localhost:5000/categories");
+      const res = await axios.get("https://backend-lift.onrender.com/categories");
       setCategories(res.data);
     } catch (err) {
       console.error(err);
@@ -26,7 +26,7 @@ const InterviewerManagement = () => {
 
   const addCategory = async () => {
     try {
-      const res = await axios.post("http://localhost:5000/categories", {
+      const res = await axios.post("https://backend-lift.onrender.com/categories", {
         category: newCategory,
       });
       setCategories([...categories, res.data]);
@@ -38,7 +38,7 @@ const InterviewerManagement = () => {
 
   const deleteCategory = async (id) => {
     try {
-      await axios.delete(`http://localhost:5000/categories/${id}`);
+      await axios.delete(`https://backend-lift.onrender.com/categories/${id}`);
       setCategories(categories.filter((cat) => cat._id !== id));
     } catch (err) {
       console.error(err);
@@ -50,7 +50,7 @@ const InterviewerManagement = () => {
 
     try {
       const res = await axios.post(
-        `http://localhost:5000/categories/${selectedCategory._id}/interviewers`,
+        `https://backend-lift.onrender.com/categories/${selectedCategory._id}/interviewers`,
         {
           name: newInterviewer.name,
           questions: [
